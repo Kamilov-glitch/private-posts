@@ -11,6 +11,8 @@
                 <div class="card-body">
                     <form action="/home" method="POST">
                         @csrf
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="mb-3">
                         <textarea name="textArea" id="textArea" cols="70"></textarea>
                         <button class="btn btn-primary">Add Post</button>
                     </form>
