@@ -9,26 +9,13 @@
                     Post a new status
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="/home" method="POST">
                         @csrf
                         <textarea name="textArea" id="textArea" cols="70"></textarea>
                         <button class="btn btn-primary">Add Post</button>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-7">
-            @if(isset($posts))
-                @foreach ($posts as $post)
-                    <div class="card mt-3">
-                        <div class="card-header">{{ $post->title }}</div>
-                        <div class="card-body">{{ $post->description }}</div>
-                    </div>
-                @endforeach
-            @endif
         </div>
     </div>
 </div>
