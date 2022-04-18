@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -19,17 +20,13 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $data = request()->validate([
-            'title' => 'required',
-            'description' => 'required'
-        ]);
-
-        auth()->user()->posts()->create([
-            'title' => $data['title'],
-            'description' => $data['descripion'],
-        ]);
+        $post = new Post();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->user_id = Auth::user()->id;
+        $post->save();
 
         return redirect('/home');
     }
