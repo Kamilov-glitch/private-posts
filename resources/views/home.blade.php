@@ -9,7 +9,7 @@
                     Post a new status
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="/home" method="POST">
                         @csrf
                         <label for="title">Title</label>
                         <input type="text" name="title" class="mb-3">
@@ -26,8 +26,19 @@
             
                 @foreach (App\Models\Post::all() as $post)
                     <div class="card mt-3">
-                        <div class="card-header">{{ $post->title }}</div>
+                        @if (Auth::check())
+                            <div class="card-header">{{ $post->title . ' by ' . $post->user->username}}</div>
+                        @endif
                         <div class="card-body">{{ $post->description }}</div>
+                        @if (Auth::check() && Auth::user()->id == $post->user_id)
+                            <div class="card-footer">
+                                <nav class="nav">
+                                    <a href="" class="nav-link"><span><i class="fa-solid fa-eye"> View</i></span></a>
+                                    <a href="" class="nav-link"><span><i class="fa-solid fa-pen-to-square"> Edit</i></span></a>
+                                    <a href="" class="nav-link"><span><i class="fa-solid fa-circle-minus"> Delete</i></span></a>
+                                </nav>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
             
