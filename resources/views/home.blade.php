@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-7">
             
-                @foreach (App\Models\Post::all() as $post)
+                @foreach (App\Models\Post::all()->sortByDesc("created_at") as $post)
                     <div class="card mt-3">
                         @if (Auth::check())
                             <div class="card-header">{{ $post->title . ' by ' . $post->user->username}}</div>
