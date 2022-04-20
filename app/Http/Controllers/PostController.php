@@ -30,4 +30,15 @@ class PostController extends Controller
 
         return redirect('/home');
     }
+
+    public function show(Post $post)
+    {
+        return view('posts.show', compact('post'));
+    }
+
+    public function edit(Post $post)
+    {
+        $this->authorize('update', $post);
+        return view('posts.edit', compact('user'));
+    }
 }

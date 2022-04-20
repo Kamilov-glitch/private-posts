@@ -33,8 +33,8 @@
                         @if (Auth::check() && Auth::user()->id == $post->user_id)
                             <div class="card-footer">
                                 <nav class="nav">
-                                    <a href="" class="nav-link"><span><i class="fa-solid fa-eye"> View</i></span></a>
-                                    <a href="" class="nav-link"><span><i class="fa-solid fa-pen-to-square"> Edit</i></span></a>
+                                    <a href="/posts/{{ $post->id }}" class="nav-link"><span><i class="fa-solid fa-eye"> View</i></span></a>
+                                    <a href="/posts/{{ $post->id }}/edit" class="nav-link"><span><i class="fa-solid fa-pen-to-square"> Edit</i></span></a>
                                     <a href="" class="nav-link"><span><i class="fa-solid fa-circle-minus"> Delete</i></span></a>
                                 </nav>
                             </div>
