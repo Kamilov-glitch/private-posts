@@ -23,12 +23,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = new Post();
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->user_id = Auth::user()->id;
-        $post->save();
-
-        return redirect('/home');
+        return $this->update($request, $post);
     }
 
     public function show(Post $post)
@@ -40,5 +35,15 @@ class PostController extends Controller
     {
         $this->authorize('update', $post);
         return view('posts.edit', compact('post'));
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->user_id = Auth::user()->id;
+        $post->save();
+
+        return redirect('/home');
     }
 }

@@ -9,7 +9,7 @@
                     Edit status
                 </div>
                 <div class="card-body">
-                    <form action="/home" method="POST">
+                    <form action="/posts/{{ $post->id }}" method="POST">
                         @csrf
                         @method('PATCH')
                         <label for="title">Title</label>
