@@ -13,7 +13,11 @@
             <nav class="nav">
                 <a href="/posts/{{ $post->id }}" class="nav-link"><span><i class="fa-solid fa-eye"> View</i></span></a>
                 <a href="/posts/{{ $post->id }}/edit" class="nav-link"><span><i class="fa-solid fa-pen-to-square"> Edit</i></span></a>
-                <a href="" class="nav-link"><span><i class="fa-solid fa-circle-minus"> Delete</i></span></a>
+                <form action="/posts/{{ $post->id }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="nav-link btn text-danger"><span><i class="fa-solid fa-circle-minus"> Delete</i></span></button>
+                </form>
             </nav>
         </div>
     @endif
