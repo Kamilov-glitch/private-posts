@@ -13,8 +13,13 @@
                         @csrf
                         @method('PATCH')
                         <label for="title">Title</label>
-                        <input type="text" name="title" class="mb-3"
+                        <input type="text" name="title" class="mb-3 @error('title') is-invalid @enderror"
                         value = {{ old('title') ?? $post->title }}>
+                        @error('title')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                         <textarea name="description" id="textArea" cols="70">
                             {{ old('description') ?? $post->description }}
                         </textarea>

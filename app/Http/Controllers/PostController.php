@@ -39,8 +39,13 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        $post->title = $request->title;
-        $post->description = $request->description;
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => ''
+        ]);
+
+        $post->title = $data['title'];
+        $post->description = $data['description'];
         $post->user_id = Auth::user()->id;
         $post->save();
 
