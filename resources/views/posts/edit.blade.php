@@ -14,7 +14,8 @@
                         @method('PATCH')
                         <label for="title">Title</label>
                         <input type="text" name="title" class="mb-3 @error('title') is-invalid @enderror"
-                        value = {{ old('title') ?? $post->title }}>
+                        value = {{ old('title') ?? $post->title }}
+                        required autofocus>
                         @error('title')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

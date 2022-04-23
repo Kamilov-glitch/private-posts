@@ -12,7 +12,8 @@
                     <form action="/home" method="POST">
                         @csrf
                         <label for="title">Title</label>
-                        <input type="text" name="title" class="mb-3 @error('title') is-invalid @enderror">
+                        <input type="text" name="title" class="mb-3 @error('title') is-invalid @enderror"
+                        required autofocus>
                         @error('title')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
