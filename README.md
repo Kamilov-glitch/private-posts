@@ -1,5 +1,3 @@
-ATTENTION - currently mysql host to the heroku deployment of this app is dead, currently working on it.
-
 ## Laravel app
 
 Its a Laravel application with MySQL database, some vue.js and bootstrap 5 technology was added here and there
