@@ -1,5 +1,7 @@
 ## Laravel app
 
+ - IMPORTANT --- Curently mysql host for this app is dead, working on it
+
 Its a Laravel application with MySQL database, some vue.js and bootstrap 5 technology was added here and there
 Main goals of this app were too:
 - Establish User and Post models
