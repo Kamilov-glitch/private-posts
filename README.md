@@ -1,6 +1,6 @@
 ## Laravel app
 
- - IMPORTANT --- Curently mysql host for this app is dead, working on it
+ - IMPORTANT --- Curently heroku removed free deployments((
 
 Its a Laravel application with MySQL database, some vue.js and bootstrap 5 technology was added here and there
 Main goals of this app were too:
